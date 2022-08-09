@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is my first socket io project</title>
+</head>
+<body>
+
+ <!-- DATA RCVD SERVER FROM CLIENT  -->
+   
+        <!-- <h1 id ="myTime"></h1> -->
+
+
+
+
+
+
+
+
+
+<!-- DATA SEND CLIENT TO SERVER -->
+
+    <!-- <input type="text" id="name">
+    <button onclick="send()" id="send">Send</button> -->
+
+
+
+<!-- BROADCAST -->
+
+<h1 id="msg"></h1>
+
+
+
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+
+        // DATA RCVD SERVER FROM CLIENT
+
+//         let socket= io();
+
+//  socket.on('myEvent', function(msg){
+//     document.getElementById('myTime').innerHTML=""
+//     document.getElementById('myTime').innerHTML=msg
+//  })
+
+
+
+//  DATA SEND CLIENT TO SERVER 
+
+//  let socket=io();
+
+//  function send(){
+//     let name = document.getElementById('name').value;
+//     socket.send(name);
+//  }
+
+
+// BROADCAST
+
+// let socket=io();
+
+//   socket.on('MyBroadcast', function(data){
+//     document.getElementById('msg').innerHTML =data;
+//   })
+
+
+    // NAMESPACE
+
+    let socket=io("/sell");
+
+socket.on('MyEvent', function(data){
+  document.getElementById('msg').innerHTML=data;
+});
+
+
+
+
+
+    </script>
+</body>
+</html>
