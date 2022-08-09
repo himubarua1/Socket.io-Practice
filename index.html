@@ -10,7 +10,7 @@
 
  <!-- DATA RCVD SERVER FROM CLIENT  -->
    
-        <!-- <h1 id ="myTime"></h1> -->
+        <h1 id ="myTime"></h1>
 
 
 
@@ -22,8 +22,8 @@
 
 <!-- DATA SEND CLIENT TO SERVER -->
 
-    <!-- <input type="text" id="name">
-    <button onclick="send()" id="send">Send</button> -->
+    <input type="text" id="name">
+    <button onclick="send()" id="send">Send</button>
 
 
 
@@ -31,7 +31,9 @@
 
 <h1 id="msg"></h1>
 
+<!-- ROOMS -->
 
+<h1 id="msg"></h1>
 
 
     <script src="/socket.io/socket.io.js"></script>
@@ -39,12 +41,12 @@
 
         // DATA RCVD SERVER FROM CLIENT
 
-//         let socket= io();
+        let socket= io();
 
-//  socket.on('myEvent', function(msg){
-//     document.getElementById('myTime').innerHTML=""
-//     document.getElementById('myTime').innerHTML=msg
-//  })
+ socket.on('myEvent', function(msg){
+    document.getElementById('myTime').innerHTML=""
+    document.getElementById('myTime').innerHTML=msg
+ })
 
 
 
@@ -52,30 +54,37 @@
 
 //  let socket=io();
 
-//  function send(){
-//     let name = document.getElementById('name').value;
-//     socket.send(name);
-//  }
+ function send(){
+    let name = document.getElementById('name').value;
+    socket.send(name);
+ }
 
 
 // BROADCAST
 
 // let socket=io();
 
-//   socket.on('MyBroadcast', function(data){
-//     document.getElementById('msg').innerHTML =data;
-//   })
+  socket.on('MyBroadcast', function(data){
+    document.getElementById('msg').innerHTML =data;
+  })
 
 
     // NAMESPACE
 
-    let socket=io("/sell");
+    // let socket=io("/sell");
 
 socket.on('MyEvent', function(data){
   document.getElementById('msg').innerHTML=data;
 });
 
+//ROOMS
 
+// let socket=io();
+
+socket.on('cooking', function(data){
+    document.getElementById('msg').innerHTML=data;
+    
+})
 
 
 
